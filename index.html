@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Weather Dashboard</title>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar d-flex justify-content-center">
+        <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
+      </nav>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-3 search">
+                <h2 data-lat="0.899">Search for a City:</h2>
+                <form class="form">
+                    <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form>
+                <div class="past-searches">
+                    <!-- <button data-lat="32.8406946" data-lon="-83.6324022" class="cityBtn">Macon</button> -->
+                </div>
+            </div>
+
+            <div class="col-9">
+                <div class="container city-box">
+
+                </div>
+                <div class="container five-day">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
