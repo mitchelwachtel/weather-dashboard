@@ -30,7 +30,6 @@ function createUrl(event) {
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
         var lat = data[0].lat;
         var lon = data[0].lon;
         var state = data[0].state;
@@ -118,22 +117,44 @@ function populateCurrent(data, city, state) {
 
   var uvIndex = data.current.uvi;
   var f = $("<p>UV Index: <span>" + uvIndex + "</span></p>");
-  //   TODO: Need to TARGET the uvIndex value
+  f.find('span').addClass('uv');
   $(".city-box").append(f);
 
   //   Coloring uvIndex Value
   if (uvIndex < 3) {
-    // color uv value GREEN
+    $('.uv').attr('style', 'background: green; color: white');
   } else if (uvIndex < 6) {
-    // color uv value YELLOW
+    $('.uv').attr('style', 'background: yellow');
   } else {
-    // color RED
+    $('.uv').attr('style', 'background: red; color: white');
   }
 }
 
 function populateFiveDay(data) {
     $(".five-day").empty();
 
-    var a1 = data.daily[1].temp.day;
-    console.log(a1);
+    for (i = 1; i <=5; i++) {
+      var card = $('<div></div>')
+      card.addClass('card');
+
+      var date;
+      
+
+      var min = data.daily[i].temp.min;
+      var max = data.daily[i].temp.max;
+      var c = $("<p>Temp: " + min + '/'+ max + " &#8457;</p>");
+      card.append(c);
+
+
+      var wind = data.daily[i].wind_speed;
+      var d = $("<p>Wind: " + wind + " MPH</p>");
+      card.append(d);
+
+      var hum = data.daily[i].humidity;
+      var e = $("<p>Humidity: " + hum + " %</p>");
+      card.append(e);
+
+      $('.five-day').append(card);
+    }
+    
 }
