@@ -115,9 +115,15 @@ function populateCurrent(data, city, state) {
   var cityDiv = $("<div></div>");
   cityDiv.addClass("cityDiv");
 
-  var a = $("<h3>" + city + ", " + state + "</h3>");
-  a.addClass("cityHeader");
-  cityDiv.append(a);
+  if (state == undefined) {
+    var a = $("<h3>" + city + "</h3>");
+    a.addClass("cityHeader");
+    cityDiv.append(a);
+  } else {
+    var a = $("<h3>" + city + ", " + state + "</h3>");
+    a.addClass("cityHeader");
+    cityDiv.append(a);
+  }
 
   var b = $("<h4>" + date + "</h4>");
   b.addClass("cityDate");
@@ -140,7 +146,7 @@ function populateCurrent(data, city, state) {
   $(".city-box").append(d);
 
   var humidity = data.current.humidity;
-  var e = $("<p>Humidity: " + humidity + " %</p>");
+  var e = $("<p>Humidity: " + humidity + "%</p>");
   $(".city-box").append(e);
 
   var uvIndex = data.current.uvi;
@@ -165,9 +171,9 @@ function populateFiveDay(data) {
     var card = $("<div></div>");
     card.addClass("card");
 
-    var date = moment().add(i, "days").format("dddd, MMM Do");
-    var b = $("<h5>" + date + "</h5>");
-    card.append(b);
+    var date = moment().add(i, "days").format("ddd, MMM Do");
+    var a = $("<h5>" + date + "</h5>");
+    card.append(a);
 
     var icon = $("<img>");
     var iconCode = data.daily[i].weather[0].icon;
@@ -175,9 +181,12 @@ function populateFiveDay(data) {
     icon.attr("src", iconUrl);
     card.append(icon);
 
-    var min = data.daily[i].temp.min;
     var max = data.daily[i].temp.max;
-    var c = $("<p>Lo/Hi: " + min + "/" + max + " &#8457;</p>");
+    var b = $("<p>Hi: " + max + " &#8457;</p>");
+    card.append(b);
+
+    var min = data.daily[i].temp.min;
+    var c = $("<p>Lo: " + min + " &#8457;</p>");
     card.append(c);
 
     var wind = data.daily[i].wind_speed;
@@ -185,7 +194,7 @@ function populateFiveDay(data) {
     card.append(d);
 
     var hum = data.daily[i].humidity;
-    var e = $("<p>Humidity: " + hum + " %</p>");
+    var e = $("<p>Humidity: " + hum + "%</p>");
     card.append(e);
 
     $(".five-day").append(card);
@@ -212,5 +221,7 @@ function useStorage() {
     var statez = saveArray[z].state;
 
     findWeather(cityz, statez, latz, lonz);
+  } else {
+    findWeather('Atlanta', 'Georgia', '33.749', '-84.3903')
   }
 }

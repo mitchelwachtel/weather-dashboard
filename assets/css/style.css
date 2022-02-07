@@ -1,3 +1,7 @@
+:root {
+    --blue: #080777;
+}
+
 * {
     font-family: 'Bangers', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
@@ -63,7 +67,8 @@
 .city-box {
     padding: 10px;
     margin: 10px;
-    border: 2px solid black;
+    background: linear-gradient(90deg, white, #080777);
+    border-radius: 7px;
 }
 
 .cityDiv {
@@ -84,17 +89,23 @@
     border-radius: 5px;
 }
 
+.cityDiv img {
+    width: 50px;
+}
+
 /* 5 day weather box */
 .five-day {
     padding: 10px;
     margin: 10px;
-    border: 2px solid black;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    background-color: var(--blue);
+    border-radius: 7px;
 }
 
 .card {
-    width: 18%;
+    width: 19%;
+    padding: 10px;
 }
 
 .card img {
