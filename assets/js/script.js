@@ -129,16 +129,16 @@ function populateCurrent(data, city, state) {
   b.addClass("cityDate");
   cityDiv.append(b);
 
+  $(".city-box").append(cityDiv);
+
   var icon = $("<img>");
   var iconCode = data.daily[0].weather[0].icon;
   var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
   icon.attr("src", iconUrl);
-  cityDiv.append(icon);
-
-  $(".city-box").append(cityDiv);
+  $(".city-box").append(icon);
 
   var temp = data.current.temp;
-  var c = $("<p>Temp: " + temp + " &#8457;</p>");
+  var c = $("<p>Temp: " + temp + "&deg;F</p>");
   $(".city-box").append(c);
 
   var wind = data.current.wind_speed;
@@ -182,11 +182,11 @@ function populateFiveDay(data) {
     card.append(icon);
 
     var max = data.daily[i].temp.max;
-    var b = $("<p>Hi: " + max + " &#8457;</p>");
+    var b = $("<p>Hi: " + max + "&deg;F</p>");
     card.append(b);
 
     var min = data.daily[i].temp.min;
-    var c = $("<p>Lo: " + min + " &#8457;</p>");
+    var c = $("<p>Lo: " + min + "&deg;F</p>");
     card.append(c);
 
     var wind = data.daily[i].wind_speed;
@@ -222,6 +222,6 @@ function useStorage() {
 
     findWeather(cityz, statez, latz, lonz);
   } else {
-    findWeather('Atlanta', 'Georgia', '33.749', '-84.3903')
+    findWeather("Atlanta", "Georgia", "33.749", "-84.3903");
   }
 }
