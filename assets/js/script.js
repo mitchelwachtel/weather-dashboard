@@ -15,7 +15,7 @@ function createUrl(event) {
 
   var city = searchInputEl.val();
   var geocodingUrl =
-    "http://api.openweathermap.org/geo/1.0/direct?q=" +
+    "https://api.openweathermap.org/geo/1.0/direct?q=" +
     city +
     "&limit=" +
     limit +
@@ -133,7 +133,7 @@ function populateCurrent(data, city, state) {
 
   var icon = $("<img>");
   var iconCode = data.daily[0].weather[0].icon;
-  var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+  var iconUrl = "https://openweathermap.org/img/w/" + iconCode + ".png";
   icon.attr("src", iconUrl);
   $(".city-box").append(icon);
 
@@ -177,7 +177,7 @@ function populateFiveDay(data) {
 
     var icon = $("<img>");
     var iconCode = data.daily[i].weather[0].icon;
-    var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+    var iconUrl = "https://openweathermap.org/img/w/" + iconCode + ".png";
     icon.attr("src", iconUrl);
     card.append(icon);
 
