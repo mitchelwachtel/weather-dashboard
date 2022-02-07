@@ -15,7 +15,7 @@ function createUrl(event) {
 
   var city = searchInputEl.val();
   var geocodingUrl =
-    "https://api.openweathermap.org/geo/1.0/direct?q=" +
+    "http://api.openweathermap.org/geo/1.0/direct?q=" +
     city +
     "&limit=" +
     limit +
