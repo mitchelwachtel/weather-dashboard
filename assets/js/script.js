@@ -1,6 +1,7 @@
 var APIkey = "82d5daf2ee6f522b1b5e4b3cf21b2f07";
 var units = "imperial";
 var limit = 1;
+var saveArray = [];
 
 var btnEl = $("#searchBtn");
 var searchInputEl = $("#searchInput");
@@ -34,6 +35,24 @@ function createUrl(event) {
         var lon = data[0].lon;
         var state = data[0].state;
 
+        for (i = 0; i < saveArray.length; i++) {
+          if (city.toLowerCase() !== saveArray[i].city.toLowerCase()) {
+            i++;
+          } else {
+            findWeather(city, state, lat, lon);
+            return;
+          }
+        }
+
+        var object = {
+          lat: lat,
+          lon: lon,
+          state: state,
+          city: city,
+        };
+
+        saveArray.push(object);
+        localStorage.setItem("searches", JSON.stringify(saveArray));
         addButton(city, state, lat, lon);
         findWeather(city, state, lat, lon);
       });
@@ -56,8 +75,7 @@ function pastSearch(event) {
   var lon = $(this).data().lon;
   var state = $(this).data().state;
   var city = $(this).text();
-  console.log(lat);
-  console.log(lon);
+
   findWeather(city, state, lat, lon);
 }
 
@@ -91,17 +109,27 @@ function findWeather(city, state, lat, lon) {
 }
 
 function populateCurrent(data, city, state) {
+  $(".city-box").empty();
   var date = moment().format("dddd, MMM Do");
 
-  $(".city-box").empty();
+  var cityDiv = $("<div></div>");
+  cityDiv.addClass("cityDiv");
 
   var a = $("<h3>" + city + ", " + state + "</h3>");
   a.addClass("cityHeader");
-  $(".city-box").append(a);
+  cityDiv.append(a);
 
   var b = $("<h4>" + date + "</h4>");
   b.addClass("cityDate");
-  $(".city-box").append(b);
+  cityDiv.append(b);
+
+  var icon = $("<img>");
+  var iconCode = data.daily[0].weather[0].icon;
+  var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+  icon.attr("src", iconUrl);
+  cityDiv.append(icon);
+
+  $(".city-box").append(cityDiv);
 
   var temp = data.current.temp;
   var c = $("<p>Temp: " + temp + " &#8457;</p>");
@@ -117,44 +145,72 @@ function populateCurrent(data, city, state) {
 
   var uvIndex = data.current.uvi;
   var f = $("<p>UV Index: <span>" + uvIndex + "</span></p>");
-  f.find('span').addClass('uv');
+  f.find("span").addClass("uv");
   $(".city-box").append(f);
 
   //   Coloring uvIndex Value
   if (uvIndex < 3) {
-    $('.uv').attr('style', 'background: green; color: white');
+    $(".uv").attr("style", "background: green; color: white");
   } else if (uvIndex < 6) {
-    $('.uv').attr('style', 'background: yellow');
+    $(".uv").attr("style", "background: yellow");
   } else {
-    $('.uv').attr('style', 'background: red; color: white');
+    $(".uv").attr("style", "background: red; color: white");
   }
 }
 
 function populateFiveDay(data) {
-    $(".five-day").empty();
+  $(".five-day").empty();
 
-    for (i = 1; i <=5; i++) {
-      var card = $('<div></div>')
-      card.addClass('card');
+  for (i = 1; i <= 5; i++) {
+    var card = $("<div></div>");
+    card.addClass("card");
 
-      var date;
-      
+    var date = moment().add(i, "days").format("dddd, MMM Do");
+    var b = $("<h5>" + date + "</h5>");
+    card.append(b);
 
-      var min = data.daily[i].temp.min;
-      var max = data.daily[i].temp.max;
-      var c = $("<p>Temp: " + min + '/'+ max + " &#8457;</p>");
-      card.append(c);
+    var icon = $("<img>");
+    var iconCode = data.daily[i].weather[0].icon;
+    var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+    icon.attr("src", iconUrl);
+    card.append(icon);
 
+    var min = data.daily[i].temp.min;
+    var max = data.daily[i].temp.max;
+    var c = $("<p>Lo/Hi: " + min + "/" + max + " &#8457;</p>");
+    card.append(c);
 
-      var wind = data.daily[i].wind_speed;
-      var d = $("<p>Wind: " + wind + " MPH</p>");
-      card.append(d);
+    var wind = data.daily[i].wind_speed;
+    var d = $("<p>Wind: " + wind + " MPH</p>");
+    card.append(d);
 
-      var hum = data.daily[i].humidity;
-      var e = $("<p>Humidity: " + hum + " %</p>");
-      card.append(e);
+    var hum = data.daily[i].humidity;
+    var e = $("<p>Humidity: " + hum + " %</p>");
+    card.append(e);
 
-      $('.five-day').append(card);
+    $(".five-day").append(card);
+  }
+}
+
+function useStorage() {
+  if (localStorage.getItem("searches") !== null) {
+    var y = localStorage.getItem("searches");
+    saveArray = JSON.parse(y);
+
+    for (i = 0; i < saveArray.length; i++) {
+      var lat = saveArray[i].lat;
+      var lon = saveArray[i].lon;
+      var city = saveArray[i].city;
+      var state = saveArray[i].state;
+
+      addButton(city, state, lat, lon);
     }
-    
+    var z = saveArray.length - 1;
+    var latz = saveArray[z].lat;
+    var lonz = saveArray[z].lon;
+    var cityz = saveArray[z].city;
+    var statez = saveArray[z].state;
+
+    findWeather(cityz, statez, latz, lonz);
+  }
 }

@@ -66,12 +66,17 @@
     border: 2px solid black;
 }
 
-.cityHeader {
+.cityDiv {
+    display: flex;
+    justify-content: flex-start;
+}
 
+.cityHeader {
+  padding-right: 5%;
 }
 
 .cityDate {
-
+    padding-right: 5%;
 }
 
 .uv {
@@ -90,5 +95,9 @@
 
 .card {
     width: 18%;
+}
+
+.card img {
+    width: 50%;
 }
 
