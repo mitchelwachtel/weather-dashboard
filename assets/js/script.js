@@ -101,13 +101,14 @@ function findWeather(city, state, lat, lon) {
       return response.json();
     })
     .then(function (data) {
-      // TODO: Next Step is to USE this data in order to display the Weather! LET'S GO!!!!
+      // Pass this data into functions in order to display the Weather!
       console.log(data);
       populateCurrent(data, city, state);
       populateFiveDay(data);
     });
 }
 
+// This function displays the desired city's data in the .city-box div
 function populateCurrent(data, city, state) {
   $(".city-box").empty();
   var date = moment().format("dddd, MMM Do");
@@ -115,6 +116,7 @@ function populateCurrent(data, city, state) {
   var cityDiv = $("<div></div>");
   cityDiv.addClass("cityDiv");
 
+//   Noticed that situations where there is no state defined for the city (Ex. Toyko), "undefined" was being displayed as the state. This conditional statement simply doesn't display a state in that case.
   if (state == undefined) {
     var a = $("<h3>" + city + "</h3>");
     a.addClass("cityHeader");
@@ -164,6 +166,7 @@ function populateCurrent(data, city, state) {
   }
 }
 
+// This function displays the desired city's next 5 days of weather in the .five-day div
 function populateFiveDay(data) {
   $(".five-day").empty();
 
@@ -201,6 +204,8 @@ function populateFiveDay(data) {
   }
 }
 
+
+// Upon loading the body, useStorage() will be called. If there are no past searches stored in local storage, then the weather for Atlanta is displayed
 function useStorage() {
   if (localStorage.getItem("searches") !== null) {
     var y = localStorage.getItem("searches");
