@@ -7,9 +7,9 @@
 
 Technologies used: Javascript with HTML, CSS, jQuery, Bootstrap, the OpenWeather API, and Moment.js. GitHub pages was used in order to publish the site.
 
-This weather dashboard was created to provide the user with weather from cities they travel at a convenience. This app displays the most important infomation in an easy to read format and saves a user's searches for their next trip to the site.
+This weather dashboard was created to provide the user with weather from cities they travel at a convenience. This app displays the most important infomation in an easy to read format and saves a user's searches for their next trip to the site using local storage.
 
-My main motivation to create this weather app was to understand how to work with APIs.  The other topic I was excited to practice was working with the DOM - Appending elements and adding classes with jQuery.
+My main motivation to create this weather app was to understand how to work with APIs.  The other topic I was excited to practice was working with the DOM - Appending elements and adding classes with jQuery. 
 
 I feel very comfortable using the openweather API platform now and it has given me confidence in using other APIs as well. APIs are such a tool that really open up my options as a developer. 
 
