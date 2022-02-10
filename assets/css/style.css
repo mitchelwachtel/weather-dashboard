@@ -41,8 +41,14 @@
 .form button {
     width: 100%;
     margin: 5px;
-    
+    color: green;
+    border-color: green;
 }
+
+.form button:hover {
+    background-color: green;
+}
+
 
 
 .cityBtn {
