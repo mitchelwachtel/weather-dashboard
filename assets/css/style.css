@@ -132,12 +132,32 @@
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 992px) {
+    .five-day p {
+        font-size: 14px;
+    }
 }
 
 @media screen and (max-width: 768px) {
+    .five-day h5 {
+        font-size: 14px;
+    }
+    .five-day p {
+        font-size: 10px;
+    }
 }
 
 @media screen and (max-width: 576px) {
+    .five-day {
+        display: flex;
+        flex-direction: column;
+
+    }
+    .five-day .card {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        
+    }
 }
 
 
