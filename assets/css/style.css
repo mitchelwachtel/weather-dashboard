@@ -132,32 +132,79 @@
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 992px) {
-    .five-day p {
-        font-size: 14px;
-    }
+  .five-day p {
+    font-size: 14px;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .five-day h5 {
-        font-size: 14px;
-    }
-    .five-day p {
-        font-size: 10px;
-    }
+  .five-day h5 {
+    font-size: 14px;
+  }
+  .five-day p {
+    font-size: 10px;
+  }
 }
 
 @media screen and (max-width: 576px) {
-    .five-day {
-        display: flex;
-        flex-direction: column;
+  .card {
+    padding: 2px;
+  }
 
-    }
-    .five-day .card {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        
-    }
+  .five-day {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+  }
+  .five-day .card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .five-day .stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .temps,
+  .windHum {
+    width: 33%;
+  }
+  .stats img {
+    width: 20%;
+    height: auto;
+    text-align: left;
+    padding: 0;
+  }
 }
 
+.city-box h3 {
+    font-size: 16px;
+}
 
+.city-box h4 {
+    font-size: 16px;
+}
+
+.city-box p {
+    font-size: 14px;
+}
+
+h2 {
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+.form * {
+  font-size: 14px;
+}
+
+.cityBtn {
+    font-size: 14px;
+}

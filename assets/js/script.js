@@ -177,29 +177,41 @@ function populateFiveDay(data) {
     var date = moment().add(i, "days").format("ddd, MMM Do");
     var a = $("<h5>" + date + "</h5>");
     card.append(a);
+    
+   var stats = $("<div></div>");
+   stats.addClass('stats');
 
     var icon = $("<img>");
     var iconCode = data.daily[i].weather[0].icon;
     var iconUrl = "https://openweathermap.org/img/w/" + iconCode + ".png";
     icon.attr("src", iconUrl);
-    card.append(icon);
+    stats.append(icon);
+    
+    var temps = $("<div></div>");
+    temps.addClass('temps');
 
     var max = data.daily[i].temp.max;
     var b = $("<p>Hi: " + max + "&deg;F</p>");
-    card.append(b);
+    temps.append(b);
 
     var min = data.daily[i].temp.min;
     var c = $("<p>Lo: " + min + "&deg;F</p>");
-    card.append(c);
+    temps.append(c);
+    stats.append(temps);
+
+    var windHum = $("<div></div>");
+    windHum.addClass('windHum');
 
     var wind = data.daily[i].wind_speed;
     var d = $("<p>Wind: " + wind + " MPH</p>");
-    card.append(d);
+    windHum.append(d);
 
     var hum = data.daily[i].humidity;
     var e = $("<p>Humidity: " + hum + "%</p>");
-    card.append(e);
+    windHum.append(e);
+    stats.append(windHum);
 
+    card.append(stats);
     $(".five-day").append(card);
   }
 }
