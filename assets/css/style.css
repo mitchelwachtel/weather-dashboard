@@ -179,32 +179,32 @@
     text-align: left;
     padding: 0;
   }
-}
 
-.city-box h3 {
+  .city-box h3 {
     font-size: 16px;
-}
+  }
 
-.city-box h4 {
+  .city-box h4 {
     font-size: 16px;
-}
+  }
 
-.city-box p {
+  .city-box p {
     font-size: 14px;
-}
+  }
 
-h2 {
+  h2 {
     font-size: 16px;
-}
+  }
 
-h1 {
+  h1 {
     font-size: 24px;
-}
+  }
 
-.form * {
-  font-size: 14px;
-}
-
-.cityBtn {
+  .form * {
     font-size: 14px;
+  }
+
+  .cityBtn {
+    font-size: 14px;
+  }
 }
