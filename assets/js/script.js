@@ -102,7 +102,6 @@ function findWeather(city, state, lat, lon) {
     })
     .then(function (data) {
       // Pass this data into functions in order to display the Weather!
-      console.log(data);
       populateCurrent(data, city, state);
       populateFiveDay(data);
     });
