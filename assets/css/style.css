@@ -1,86 +1,80 @@
 :root {
-    --blue: #080777;
+  --blue: #080777;
 }
 
 * {
-    font-family: 'Bangers', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: "Bangers", Impact, Haettenschweiler, "Arial Narrow Bold",
+    sans-serif;
 }
 
 .navbar {
-    background: linear-gradient(90deg, #1b1b1d, #080777);
-    color: white;
-    padding: 15px;
+  background: linear-gradient(90deg, #1b1b1d, #080777);
+  color: white;
+  padding: 15px;
 }
 
 .h1 {
   font-size: 50px;
-
 }
 
 .search {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 0;
-
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 0;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px;
 }
 
 .form input {
-    width: 100%;
-    margin: 5px;
+  width: 100%;
+  margin: 5px;
 }
 
 .form button {
-    width: 100%;
-    margin: 5px;
-    color: green;
-    border-color: green;
+  width: 100%;
+  margin: 5px;
+  color: green;
+  border-color: green;
 }
 
 .form button:hover {
-    background-color: green;
+  background-color: green;
 }
 
-
-
 .cityBtn {
-    margin: 10px;
-    width: 100%;
-
-    
+  margin: 10px;
+  width: 100%;
 }
 
 .past-searches {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .weather-display {
-    padding-right: 5%;
+  padding-right: 5%;
 }
 
 /* TO STYLE THE MAIN WEATHER BOX */
 .city-box {
-    padding: 10px;
-    margin: 10px;
-    background: linear-gradient(90deg, white, #080777);
-    border-radius: 7px;
-    line-height: 12px;
+  padding: 10px;
+  margin: 10px;
+  background: linear-gradient(90deg, white, #080777);
+  border-radius: 7px;
+  line-height: 12px;
 }
 
 .cityDiv {
-    display: flex;
-    justify-content: flex-start;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .cityHeader {
@@ -88,50 +82,62 @@
 }
 
 .cityDate {
-    padding-right: 5%;
+  padding-right: 5%;
 }
 
 .uv {
-    padding: 5px;
-    border-radius: 5px;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .city-box img {
-    width: 8%;
+  width: 8%;
 }
 
 .city-box p {
-    font-family: monospace;
-    font-weight: 900;
+  font-family: monospace;
+  font-weight: 900;
 }
 
 .city-box span {
-    font-family: monospace;
-    font-weight: 900;
+  font-family: monospace;
+  font-weight: 900;
 }
 
 /* 5 day weather box */
 .five-day {
-    padding: 10px;
-    margin: 10px;
-    display: flex;
-    justify-content: space-evenly;
-    background-color: var(--blue);
-    border-radius: 7px;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: var(--blue);
+  border-radius: 7px;
 }
 
 .five-day p {
-    font-family: monospace;
-    font-weight: 900;
+  font-family: monospace;
+  font-weight: 900;
 }
 
 .card {
-    width: 19%;
-    padding: 10px;
-    line-height: 12px;
+  width: 19%;
+  padding: 10px;
+  line-height: 12px;
 }
 
 .card img {
-    width: 50%;
+  width: 50%;
 }
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 992px) {
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 576px) {
+}
+
 
